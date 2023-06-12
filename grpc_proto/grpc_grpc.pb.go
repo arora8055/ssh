@@ -2,7 +2,7 @@
 // versions:
 // - protoc-gen-go-grpc v1.2.0
 // - protoc             v4.23.2
-// source: grpc/grpc.proto
+// source: grpc_proto/grpc.proto
 
 package grpc_prpto
 
@@ -34,7 +34,7 @@ func NewSSHServiceClient(cc grpc.ClientConnInterface) SSHServiceClient {
 }
 
 func (c *sSHServiceClient) ExecuteCommand(ctx context.Context, opts ...grpc.CallOption) (SSHService_ExecuteCommandClient, error) {
-	stream, err := c.cc.NewStream(ctx, &SSHService_ServiceDesc.Streams[0], "/grpc.SSHService/ExecuteCommand", opts...)
+	stream, err := c.cc.NewStream(ctx, &SSHService_ServiceDesc.Streams[0], "/grpc_proto.SSHService/ExecuteCommand", opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -122,7 +122,7 @@ func (x *sSHServiceExecuteCommandServer) Recv() (*CommandRequest, error) {
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
 var SSHService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "grpc.SSHService",
+	ServiceName: "grpc_proto.SSHService",
 	HandlerType: (*SSHServiceServer)(nil),
 	Methods:     []grpc.MethodDesc{},
 	Streams: []grpc.StreamDesc{
@@ -133,5 +133,5 @@ var SSHService_ServiceDesc = grpc.ServiceDesc{
 			ClientStreams: true,
 		},
 	},
-	Metadata: "grpc/grpc.proto",
+	Metadata: "grpc_proto/grpc.proto",
 }
